@@ -1,28 +1,29 @@
-import { useState } from 'react'
+import NavBar from './components/NavBar';
+import HeroSearch from './components/HeroSearch';
+import ResultsGrid from './components/ResultsGrid';
+import KnowledgePanel from './components/KnowledgePanel';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-white text-gray-800">
+      <NavBar />
+      <HeroSearch />
+      <main className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+          <div className="lg:col-span-2">
+            <ResultsGrid />
+          </div>
+          <div className="lg:col-span-1">
+            <KnowledgePanel />
+          </div>
         </div>
-      </div>
+      </main>
+      <footer className="mt-16 border-t">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-6 text-sm text-gray-500 flex items-center justify-between">
+          <p>© {new Date().getFullYear()} Divakar Thiyagarajan</p>
+          <p>Built with React, Tailwind, and Spline</p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
